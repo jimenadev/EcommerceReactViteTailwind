@@ -1,9 +1,11 @@
+import Layout from '../../components/Layout/'
+
 function Home() {
 
     return (
-      <div className='bg-red-100'>
+      <Layout>
         Home
-      </div>
+      </Layout>
     )
   }
   
