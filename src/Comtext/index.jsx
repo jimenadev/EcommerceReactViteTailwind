@@ -9,7 +9,7 @@ export const ShoppingCartProvider = ({children}) =>{
     const [count, setCount] = useState(0)
 
     //Shopping Cart  - Add products to cart
-    const [cartProducts, setCartToProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState([])
 
 
     //Product Detail - Open/Close
@@ -39,7 +39,7 @@ export const ShoppingCartProvider = ({children}) =>{
             productToShow,
             setProductToShow,
             cartProducts,
-            setCartToProducts,
+            setCartProducts,
             isCheckoutSideMenu,
             openCheckoutSideMenu,
             closeCheckoutSideMenu

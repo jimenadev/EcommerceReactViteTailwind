@@ -18,9 +18,9 @@ const Card = (data) =>{
         event.stopPropagation();
         context.setCount(context.count+1) 
         if(context.cartProducts.length > 0){
-            context.setCartToProducts([...context.cartProducts, productData])
+            context.setCartProducts([...context.cartProducts, productData])
         }else{
-            context.setCartToProducts(productData)
+            context.setCartProducts([productData])
         }
         context.openCheckoutSideMenu()
         context.closeProductDetail()
