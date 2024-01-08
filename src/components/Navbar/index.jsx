@@ -10,9 +10,65 @@ import { ShoppingCartContext } from '../../Comtext/'
 const Navbar = () => {
 
     const context = useContext(ShoppingCartContext)
-
-
     const activeStyle = 'underline underline-offset-4'
+
+    //Sign Out
+    const signOut = localStorage.getItem('dign-out')
+    const parsedSignOut = JSON.parse(signOut)
+    const isUserSignOut = context.signOut || parsedSignOut
+
+
+    const renderView = () =>{
+        if(isUserSignOut){
+            return (
+                <li>
+                    <NavLink to='/sign-in'
+                    className={({isActive}) => isActive ? activeStyle : undefined}
+                    onClick={() => handleSignOut()}
+                    >
+                        Sing Out
+                    </NavLink>
+                </li>
+            )
+
+        }else{
+            return (
+                <>
+                <li className='text-black/60'>
+                    contact@shopi.com
+                </li>
+                <li>
+                    <NavLink to='/my-orders'
+                     className={({isActive}) =>
+                     isActive ? activeStyle : undefined
+                     }>
+                        My Orders
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/my-account'
+                     className={({isActive}) =>
+                     isActive ? activeStyle : undefined
+                     }>
+                        My Account
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/sign-in'
+                     className={({isActive}) =>
+                     isActive ? activeStyle : undefined}
+                     onClick={() => handleSignOut()}
+                     >
+                        Sing Out
+                    </NavLink>
+                </li>
+                <li className='flex items-center'>
+                   <ShoppingBagIcon className="h-6 w-6 text-black cursor-pointer" /> {context.cartProducts.length }
+                </li>
+                </>
+            )
+        }
+    }
 
     return (
         <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
@@ -79,36 +135,7 @@ const Navbar = () => {
             </ul>
 
             <ul  className='flex items-center gap-3'>
-                <li className='text-black/60'>
-                    contact@shopi.com
-                </li>
-                <li>
-                    <NavLink to='/my-orders'
-                     className={({isActive}) =>
-                     isActive ? activeStyle : undefined
-                     }>
-                        My Orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/my-account'
-                     className={({isActive}) =>
-                     isActive ? activeStyle : undefined
-                     }>
-                        My Account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/sign-in'
-                     className={({isActive}) =>
-                     isActive ? activeStyle : undefined
-                     }>
-                        Sing In
-                    </NavLink>
-                </li>
-                <li className='flex items-center'>
-                   <ShoppingBagIcon className="h-6 w-6 text-black cursor-pointer" /> {context.cartProducts.length }
-                </li>
+                {renderView()}
             </ul>
 
         </nav>
