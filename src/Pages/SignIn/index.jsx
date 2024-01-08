@@ -25,7 +25,7 @@ function SignIn() {
     localStorage.setItem('sign-out', stringfiedSignOut)
     context.setSignOut(false)
 
-    return <Navigate replace to={'/'} />
+    return <Navigate replace to={'/EcommerceReactViteTailwind/'} />
   }
 
   const createAnAccount = () =>{
