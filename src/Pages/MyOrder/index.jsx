@@ -13,10 +13,7 @@ function MyOrder() {
   if(index==='last') {
     index = context.order?.length - 1
   }
-
-  console.log("index",index)
   
-
     return (
       <Layout>
         <div className="flex w-80  relative items-center justify-center mb-6">
