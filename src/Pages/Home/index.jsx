@@ -9,6 +9,24 @@ function Home() {
 
   const context = useContext(ShoppingCartContext)
 
+  const renderView = () =>{
+    if(context.setSearchByTitle?.length > 0){
+      if(context.filteredItems?.length > 0){
+          return (
+            (context.filteredItems?.map((item) => <Card data={item} key={item.id} />))
+          )
+      }else{
+        return (
+          <div>
+            We don't have anything :(
+          </div>
+        )
+      }
+   
+    }else{
+      return (context.items?.map((item) => <Card data={item} key={item.id} />))
+    }
+  }
 
     return (
       <Layout>
@@ -23,7 +41,7 @@ function Home() {
             />
         <div className='grid gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full max-w-screen-lg  justify-center'> 
           {
-            context.items?.map((item) => <Card data={item} key={item.id} />)
+            renderView()
           }
         </div>
       
