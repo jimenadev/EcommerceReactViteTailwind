@@ -24,7 +24,6 @@ function MyOrders() {
             </Link>
           ))
          }
-         <OrdersCard />
       </Layout>
     )
   }

@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
+import data from '../data/products.json'
 
 export const ShoppingCartContext = createContext()
 
@@ -73,9 +74,7 @@ export const ShoppingCartProvider = ({children}) =>{
 
 
     useEffect(() => {
-        fetch('https://api.escuelajs.co/api/v1/products')
-        .then(response => response.json())
-        .then(data => setItems(data))
+        setItems(data.data)
     }, [])
 
     const filteredItemsByTitle = (items, searchByTitle) =>{
