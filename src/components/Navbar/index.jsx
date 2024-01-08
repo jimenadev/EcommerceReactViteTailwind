@@ -12,6 +12,12 @@ const Navbar = () => {
     const context = useContext(ShoppingCartContext)
     const activeStyle = 'underline underline-offset-4'
 
+    const handleSignOut = () =>{
+        const stringfiedSignOut = JSON.stringify(true)
+        localStorage.setItem('sign-out', stringfiedSignOut)
+        context.setSignOut(true)
+    }
+
     //Sign Out
     const signOut = localStorage.getItem('dign-out')
     const parsedSignOut = JSON.parse(signOut)
