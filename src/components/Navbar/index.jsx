@@ -85,7 +85,7 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/'
+                    <NavLink to='/EcommerceReactViteTailwind/'
                         onClick={() => context.setSearchByCategory()}
                         className={({isActive}) =>
                         isActive ? activeStyle : undefined
