@@ -1,7 +1,7 @@
 import Layout from '../../components/Layout/'
 import { Link, Navigate } from 'react-router-dom'
 import { useContext, useRef, useState } from "react"
-import { ShoppingCartContext } from '../../Comtext/'
+import { ShoppingCartContext } from '../../Context/'
 
 
 
@@ -36,7 +36,12 @@ function SignIn() {
       password: formData.get('password')
     }
 
-    console.log(data)
+     // Create account
+     const stringifiedAccount = JSON.stringify(data)
+     localStorage.setItem('account', stringifiedAccount)
+     context.setAccount(data)
+     // Sign In
+     handleSignIn()
   }
 
   const renderCreateUserInfo = () =>{

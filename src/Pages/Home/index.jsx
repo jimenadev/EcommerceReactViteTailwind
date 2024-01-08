@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import Layout from '../../components/Layout/'
 import Card from '../../components/Card'
 import ProductDetail from '../../components/ProductDetail'
-import { ShoppingCartContext } from '../../Comtext'
+import { ShoppingCartContext } from '../../Context'
 
 
 function Home() {
